@@ -13,6 +13,15 @@ rmdir /s /q "dist\%APP_NAME%" 2>nul
 del "dist\%APP_NAME%-x64-setup.exe" 2>nul
 del "dist\%APP_NAME%-x64-portable.7z" 2>nul
 
+set PYTHONPATH=%DIR%\..
+
+echo.
+echo ****************************************
+echo Checking requirements...
+echo ****************************************
+
+pip install -r requirements_dist.txt
+
 echo.
 echo ****************************************
 echo Running pyinstaller...
@@ -68,12 +77,45 @@ del "dist\%APP_NAME%\_internal\api-ms-win-core-fibers-l1-1-0.dll"
 del "dist\%APP_NAME%\_internal\libcrypto-3.dll"
 del "dist\%APP_NAME%\_internal\ucrtbase.dll"
 
+call :create_7z
+call :create_installer
+
+:done
+echo.
+echo ****************************************
+echo Done.
+echo ****************************************
+echo.
+pause
+
+endlocal
+goto :eof
+
+:create_7z
+if not exist "C:\Program Files\7-Zip\" (
+	echo.
+	echo ****************************************
+	echo 7z.exe not found at default location, omitting .7z creation...
+	echo ****************************************
+	exit /B
+)
+echo.
+echo ****************************************
+echo Creating .7z archive...
+echo ****************************************
+cd dist
+set PATH=C:\Program Files\7-Zip;%PATH%
+7z a "%APP_NAME%-x64-portable.7z" "%APP_NAME%\*"
+cd ..
+exit /B
+
+:create_installer
 if not exist "C:\Program Files (x86)\NSIS\" (
 	echo.
 	echo ****************************************
 	echo NSIS not found at default location, omitting installer creation...
 	echo ****************************************
-	goto :copy_reg_file
+	exit /B
 )
 echo.
 echo ****************************************
@@ -114,33 +156,7 @@ for /F %%d in ('dir /s /b /ad^|sort /r') do (
 cd "%DIR%"
 set PATH=C:\Program Files (x86)\NSIS;%PATH%
 makensis make-installer.nsi
-
-if not exist "C:\Program Files\7-Zip\" (
-	echo.
-	echo ****************************************
-	echo 7z.exe not found at default location, omitting .7z creation...
-	echo ****************************************
-	goto :done
-)
-echo.
-echo ****************************************
-echo Creating .7z archive...
-echo ****************************************
-cd dist
-set PATH=C:\Program Files\7-Zip;%PATH%
-7z a "%APP_NAME%-x64-portable.7z" "%APP_NAME%\*"
-cd ..
-
-:done
-echo.
-echo ****************************************
-echo Done.
-echo ****************************************
-echo.
-pause
-
-endlocal
-goto :eof
+exit /B
 
 :make_abs_nsh
 set NSH=%~dpnx1%

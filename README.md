@@ -72,14 +72,14 @@ The [examples](examples/) folder contains 9 example Python scripts, which were a
 
 ## Freezing (creating standalone .exe)
 
-Running [make_dist_windows.cmd](examples/make_dist_windows.cmd) in the examples folder (after either copying the ruwps folder into examples or your python's site-packages folder, or adding its path to the PYTHONPATH environment variable) will create a standalone .exe for the minimal AwsomeApp demo shown above. If you have [7-Zip](https://7-zip.org/) installed at the default location, the script will also create a file called "AwesomeApp-x64-portable.7z". If you have [NSIS](https://nsis.sourceforge.io/Main_Page) installed at the default location, the script will also create a file called "AwesomeApp-x64-setup.exe".  
-Running [make_dist_macos.command](examples/make_dist_macos.command) in macOS will create a standalone app for macOS as well as a compressed .dmg image called "AwesomeApp.dmg", based on the same Python code and ``rumps``.
+Running batch script [make_dist_windows.cmd](examples/make_dist_windows.cmd) in the examples folder will create a standalone .exe for the minimal "AwsomeApp" demo shown above. If you have [7-Zip](https://7-zip.org/) installed at the default location, the script will also create a file called "AwesomeApp-x64-portable.7z". If you have [NSIS](https://nsis.sourceforge.io/Main_Page) installed at the default location, the script will also create a file called "AwesomeApp-x64-setup.exe".  
+Running [make_dist_macos.command](examples/make_dist_macos.command) in macOS will create a standalone app for macOS as well as a compressed .dmg image called "AwesomeApp.dmg", based on the same Python code and ``rumps`` instead of ``ruwps``.
 
 ## Documentation
 
 The ``ruwps`` API is (almost) the same as for ``rumps``, so you can refer to this documentation: https://rumps.readthedocs.org
 
-But of course there are some differences, since the underlying system APIs differ. Here some of them:
+But of course there are some differences, since the underlying system APIs differ. Here some of those differences:
 * The app's systray icon is loaded from an .ico file (instead of a .icns file in macOS). If you don't specify a custom icon, at dev time some arbitrary b&w default icon (see screenshots) is used, while in a frozen application the application's main icon (that was passed to pyinstaller) is used instead.
 * The Winapi doesn't support automatic icon conversion based on the user's current light/dark mode, therefor the optional ``template`` argument of the App's constructor works differently in ``ruwps``, if it is specified and set to True, the ``icon`` argument has to be a tuple/list of two icon files, and the first is then used in light and the second in dark mode.
 * Menu icons (optional) are loaded from .bmp files (instead of .png or .jpg files in macOS). The optional ``dimensions`` argument is ignored.
