@@ -3,7 +3,7 @@ import sys
 IS_MAC = sys.platform == 'darwin'
 IS_WIN = sys.platform == 'win32'
 if IS_MAC:
-    import rups as rups
+    import rumps as rups
 elif IS_WIN:
     import ruwps as rups
 else:
