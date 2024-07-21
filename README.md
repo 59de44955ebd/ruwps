@@ -77,7 +77,7 @@ Running [make_dist_macos.command](examples/make_dist_macos.command) in macOS wil
 
 ## Documentation
 
-The ``ruwps`` API is (almost) the same as for ``rumps``, so you can refer to this documentation: https://rumps.readthedocs.org
+The ``ruwps`` API is (almost) the same as for ``rumps``, so you can refer to the [rumps documentation](https://rumps.readthedocs.org).
 
 But of course there are some differences, since the underlying system APIs differ. Here some of those differences:
 * The app's systray icon is loaded from an .ico file (instead of a .icns file in macOS). If you don't specify a custom icon, at dev time some arbitrary b&w default icon (see screenshots) is used, while in a frozen application the application's main icon (that was passed to pyinstaller) is used instead.
