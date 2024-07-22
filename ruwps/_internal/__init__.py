@@ -59,7 +59,7 @@ def _make_menu_data(parent_dict, menuitem):
     if menuitem.key:
         menu_dict['caption'] += '\t' + menuitem.key
     if menuitem.state:
-        menu_dict['flags'] = menu_dict['flags'] + 'CHECKED' if 'flags' in menu_dict else 'flags'
+        menu_dict['flags'] = menu_dict['flags'] + 'CHECKED' if 'flags' in menu_dict else 'CHECKED'
     if menuitem.icon:
         menu_dict['hbitmap'] = user32.LoadImageW(0, menuitem.icon, IMAGE_BITMAP, _MENU_ICON_SIZE, _MENU_ICON_SIZE, LR_LOADFROMFILE)
     parent_dict['items'].append(menu_dict)
@@ -160,7 +160,9 @@ def alert(title='', message='', ok=None, cancel=None):
         return FALSE
 
     _log('alert opened with message: {0}, title: {1}'.format(repr(message), repr(title)))
-    return _app.dialog_show_sync(Dialog(_app, dialog_dict, _dialog_proc_callback))
+    btn_id = _app.dialog_show_sync(Dialog(_app, dialog_dict, _dialog_proc_callback))
+    # The “ok” button will return 1 and the “cancel” button will return 0.
+    return 1 - btn_id
 
 ########################################
 #
@@ -223,7 +225,7 @@ def timers():
 ########################################
 class MenuItem(object):
 
-    def __init__(self, title, callback=None, key=None, icon=None, dimensions=None, template=None, state=0):
+    def __init__(self, title, callback=None, key=None, icon=None, dimensions=None, template=None):
         self._title = title
         self.callback = callback
         self.key = key
@@ -231,13 +233,9 @@ class MenuItem(object):
             self._icon = icon[int(_USE_DARK)]
         else:
             self._icon = icon
-        self._state = state
+        self._state = 0
         self.id = _unique_id()
         self.child_dict = {}
-
-#    def __repr__(self):
-#        return '<{0}: [{1} -> {2}; callback: {3}]>'.format(type(self).__name__, repr(self.title), list(map(str, self)),
-#                                                           repr(self.callback))
 
     def __repr__(self):
         return '<{}: [{}; callback: {}]>'.format(type(self).__name__,
