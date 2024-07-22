@@ -16,6 +16,6 @@ __author__ = '59de44955ebd'
 __license__ = 'MIT'
 __copyright__ = 'Copyright 2024 https://github.com/59de44955ebd'
 
-from ._private import (alert, application_support, debug_mode, notification, quit_application, timers,
+from ._internal import (alert, application_support, debug_mode, notification, quit_application, timers,
         App, MenuItem, Timer, Window, timer, clicked, notifications, separator)
-del _private
+del _internal
