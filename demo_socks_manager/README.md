@@ -6,7 +6,7 @@ SocksManager is a system tray/statusbar application that allows to start/stop/ma
 
 ## Requirements
 
-The Windows version requires the OpenSSH Client prvided by Microsoft to be installed:  
+The Windows version requires the OpenSSH Client provided by Microsoft to be installed:  
 Settings -> System -> Optional Features -> OpenSSH Client
 
 ## connections.json
