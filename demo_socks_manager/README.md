@@ -4,6 +4,11 @@ A simple cross-platform demo application based on ``ruwps`` in Windows and ``rum
 
 SocksManager is a system tray/statusbar application that allows to start/stop/manage multiple local SOCKS5 proxies, i.e. SSH tunnels to remote machines that can be used as proxies in browsers, download tools etc. One use case for this are mass downloads in tools like JDownloader from file servers that only allow a single download per IP at the time. By adding multiple proxy configurations to JDownloader and then starting/stopping proxies as needed this limitation can be circumvented, and therefor stuff can be downloaded much faster.
 
+## Requirements
+
+The Windows version requires the OpenSSH Client prvided by Microsoft to be installed:  
+Settings -> System -> Optional Features -> OpenSSH Client
+
 ## connections.json
 
 To keep things simple, proxy configuration has to be done manually by editing a JSON file called "connections.json" using a text editor. The file contains an array (of arbitrary length) of objects, where each object represents a SSH connection (SOCKS5 proxy).
