@@ -11,22 +11,22 @@ To keep things simple, proxy configuration has to be done manually by editing a 
 Example file:
 ```json
 [
-	{
+    {
         "name": "WHATEVER0 (5150)",
         "host": "166.66.66.66",
         "user": "foo",
         "key_file": "~/.ssh/id_rsa",
         "local_port": 5150
-	},
-	{
+    },
+    {
         "name": "WHATEVER1 (5151)",
         "host": "some.domain.com",
         "user": "bar",
         "password": "AMcKjF8G_YGH!B3R",
         "local_port": 5151,
         "reconnect": true
-	},
-	{
+    },
+    {
         "name": "WHATEVER2 (5152)",
         "host": "177.77.77.77",
         "user": "foobar",
@@ -35,7 +35,7 @@ Example file:
         "remote_port": 2222,
         "reconnect": true,
         "autostart": true
-	}
+    }
 ]
 ```
 
