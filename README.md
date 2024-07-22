@@ -64,7 +64,10 @@ The resulting app, based on ``rumps``, running in macOS:
 
 ## Installation
 
-Since ``ruwps`` has no dependancies (other than Python 3), no real installation needed, either bundle the ``ruwps`` folder with your local project or copy it to Python's site-packages folder.
+```
+git clone https://github.com/59de44955ebd/ruwps.git
+pip install -e ruwps
+```
 
 ## Examples
 
