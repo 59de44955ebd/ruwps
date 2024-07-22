@@ -56,11 +56,13 @@ if __name__ == "__main__":
 ```
 
 The resulting app running in Windows 11:  
+
 ![System tray menu in Windows 11](screenshots/systray_menu.png)
 ![System tray notification in Windows 11](screenshots/systray_notifcation.png)
 
 The resulting app, based on ``rumps``, running in macOS:  
-![Statusbar menu and norification in macOS](https://raw.github.com/jaredks/rumps/master/examples/rumps_example.png)
+
+![Statusbar menu and norification in macOS](screenshots/menu_notification_macos.png)
 
 ## Installation
 
