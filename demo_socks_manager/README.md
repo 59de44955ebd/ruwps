@@ -2,7 +2,7 @@
 
 A simple cross-platform demo application based on ``ruwps`` in Windows and ``rumps`` in macOS
 
-SocksManager is system tray/statusbar application that allows to start/stop/manage multiple local SOCKS5 proxies, i.e. SSH tunnels to remote machines that can be used as proxies in browsers, download tools etc. One use case for this are mass downloads in tools like JDownloader from file servers that only allow a single download per IP at the time. By adding multiple proxy configurations to JDownloader and then starting/stopping proxies as needed this limitation can be circumvented, and therefor stuff can be downloaded much faster.
+SocksManager is a system tray/statusbar application that allows to start/stop/manage multiple local SOCKS5 proxies, i.e. SSH tunnels to remote machines that can be used as proxies in browsers, download tools etc. One use case for this are mass downloads in tools like JDownloader from file servers that only allow a single download per IP at the time. By adding multiple proxy configurations to JDownloader and then starting/stopping proxies as needed this limitation can be circumvented, and therefor stuff can be downloaded much faster.
 
 ## connections.json
 
