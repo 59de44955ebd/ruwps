@@ -97,7 +97,7 @@ class SocksManagerApp(rups.App):
                 del self.procs[con_id]
                 if "reconnect" in con and con["reconnect"] and self.reconnects[con_id] < MAX_RECONNECTS:
                     rups.notification(message=f"Connection {con['name']} got disconnected.\nTrying to reconnect...")
-                    self.toggle_connection(con_id)
+                    self.toggle_connection(con['menu_item'], con_id)
                 else:
                     rups.notification(message=f"Connection {con['name']} got disconnected.")
 
@@ -159,27 +159,31 @@ class SocksManagerApp(rups.App):
             self.procs[con_id].terminate()
             del self.procs[con_id]
         else:
-            if con["auth"] == "key":
+            if "key_file" in con:
                 command = [
                     SSH_BIN,
+                    '-p',
+                    str(con['remote_port'] if 'remote_port' in con else 22),
                     '-o',
                     'StrictHostKeyChecking=no',
                     f"{con['user']}@{con['host']}",
                     '-i',
                     con['key_file'],
                     '-D',
-                    f"localhost:{con['port']}",
+                    f"localhost:{con['local_port']}",
                     '-N',
                 ]
                 env = None
             else:
                 command = [
                     SSH_BIN,
+                    '-p',
+                    str(con['remote_port'] if 'remote_port' in con else 22),
                     '-o',
                     'StrictHostKeyChecking=no',
                     f"{con['user']}@{con['host']}",
                     '-D',
-                    f"localhost:{con['port']}",
+                    f"localhost:{con['local_port']}",
                     '-N',
                 ]
                 if IS_MAC:
