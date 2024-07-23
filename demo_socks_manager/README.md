@@ -51,7 +51,7 @@ Required keys:
 * either "key_file" (string) or "password" (string).  
 For "key_file" in Windows forward slashes are supported, and a leading "~" is translated to %USERPROFILE%
 * "local_port" (int): the local SOCKS5 port to be used.  
-In browsers/download tools the proxy server is then specified as localhost:local_port, so e.g. localhost:5150
+In browsers/download tools the SOCKS5 proxy server is then specified as localhost:local_port, so e.g. localhost:5150
 
 Optional keys:
 * "remote_port" (int, default=22)

@@ -204,7 +204,7 @@ def notification(title='', subtitle='', message='', data=None, sound=True, win_f
 ########################################
 #
 ########################################
-def quit_application():
+def quit_application(*args):
     _log('closing application')
     if _app is None:
         raise _NO_APP_ERROR
@@ -665,7 +665,7 @@ class Timer(object):
         if _app is None:
             raise _NO_APP_ERROR
         self._timer_id = _app.create_timer(lambda: _call_as_function_or_method(self.callback, self),
-                self._interval * 1000)
+                int(self._interval * 1000))
 
     def stop(self):
         """Stop the timer thread loop."""
