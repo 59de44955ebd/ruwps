@@ -75,10 +75,15 @@ pip install -e ruwps
 
 The [examples](examples/) folder contains 9 example Python scripts, which were all directly copied from ``rumps`` and then made cross-platform.
 
+## Demo application "SocksManager"
+
+The [demo_socks_manager](demo_socks_manager/) folder contains a (still simple) actual cross-platform application that allows to start/stop/manage SOCKS5 proxies/SSH tunnels both in Windows and macOS.
+
 ## Freezing (creating standalone .exe)
 
 Running batch script [make_dist_windows.cmd](examples/make_dist_windows.cmd) in the examples folder will create a standalone .exe for the minimal "AwsomeApp" demo shown above. If you have [7-Zip](https://7-zip.org/) installed at the default location, the script will also create a file called "AwesomeApp-x64-portable.7z". If you have [NSIS](https://nsis.sourceforge.io/Main_Page) installed at the default location, the script will also create a file called "AwesomeApp-x64-setup.exe".  
-Running [make_dist_macos.command](examples/make_dist_macos.command) in macOS will create a standalone app for macOS as well as a compressed .dmg image called "AwesomeApp.dmg", based on the same Python code and ``rumps`` instead of ``ruwps``.
+Running [make_dist_macos.command](examples/make_dist_macos.command) in macOS will create a standalone app for macOS as well as a compressed .dmg image called "AwesomeApp.dmg", based on the same Python code and ``rumps`` instead of ``ruwps``.  
+Running scripts [make_dist_windows.cmd](demo_socks_manager/make_dist_windows.cmd) and [make_dist_macos.command](demo_socks_manager/make_dist_macos.command) in the demo_socks_manager folder does the same thing for the SocksManager demo application.
 
 ## Documentation
 
