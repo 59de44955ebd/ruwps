@@ -198,6 +198,8 @@ def notification(title='', subtitle='', message='', data=None, sound=True, win_f
         raise _NO_APP_ERROR
     if not sound:
         win_flags |= NIIF_NOSOUND
+    if subtitle:
+        title += '\n' + subtitle  # win notifications have no subtitles
     notification.__dict__['*data'] = data
     _app.trayicon.notify(message, title, flags=win_flags)
 
