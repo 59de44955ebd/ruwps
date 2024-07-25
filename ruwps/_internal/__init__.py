@@ -341,7 +341,7 @@ class MenuItem(object):
 
     def _append(self, m):
         if m is None:
-            self.add(SeparatorItem())  #MenuItem('-'))
+            self.add(SeparatorItem())
         elif type(m) == MenuItem:
             self.add(m)
         elif type(m) == str:
@@ -365,8 +365,6 @@ class App(MainWin):
 
         global _app
         _app = self
-
-#        setattr(App, '*app_instance', self)
 
         self.name = name
         self._title = name if title is None else str(title)

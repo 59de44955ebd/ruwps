@@ -60,9 +60,10 @@ The resulting app running in Windows 11:
 ![System tray menu in Windows 11](screenshots/systray_menu.png)
 ![System tray notification in Windows 11](screenshots/systray_notifcation.png)
 
-The resulting app, based on ``rumps``, running in macOS:  
+The resulting app, based on ``rumps``, running in macOS 13:  
 
-![Statusbar menu and norification in macOS](screenshots/menu_notification_macos.png)
+![Statusbar menu in macOS 13](screenshots/statusbar_menu.png)
+![Statusbar notification in macOS 13](screenshots/statusbar_notification.png)
 
 ## Installation
 
